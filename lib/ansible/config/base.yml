@@ -875,6 +875,15 @@ DEFAULT_NULL_REPRESENTATION:
   ini:
   - {key: null_representation, section: defaults}
   type: none
+DEFAULT_PBRUN_WRAPPED_EXECUTABLE:
+  name: Set what executable to use when wrapping command sent to 'pbrun'
+  default: ''
+  description: 
+    - Specify the executable to use when wrapping the comamnd sent to pbrun. If this setting is not defined then
+      the command is not wrapped when sent to pbrun.
+  env: [{name: PBRUN_WRAPPED_EXECUTABLE}]
+  ini:
+  - {key: pbrun_wrapped_executable, section: privilege_escalation}
 DEFAULT_POLL_INTERVAL:
   name: Async poll interval
   default: 15

@@ -505,8 +505,13 @@ class PlayContext(Base):
 
             elif self.become_method == 'pbrun':
 
+                if C.DEFAULT_PBRUN_WRAPPED_EXECUTABLE:
+                    command = '%s -c %s' % (C.DEFAULT_PBRUN_WRAPPED_EXECUTABLE, success_cmd)
+                else:
+                    command = success_cmd
+
                 prompt = 'Password:'
-                becomecmd = '%s %s -u %s %s' % (exe, flags, self.become_user, success_cmd)
+                becomecmd = '%s %s -u %s %s' % (exe, flags, self.become_user, command)
 
             elif self.become_method == 'ksu':
                 def detect_ksu_prompt(b_data):
